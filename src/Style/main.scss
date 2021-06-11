@@ -1,0 +1,6 @@
+@import 'node_modules/normalize-scss/sass/normalize.scss';
+@include normalize();
+@import '_reset';
+@import '_mixin';
+@import '_global';
+@import '_variables';

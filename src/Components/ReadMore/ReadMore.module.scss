@@ -1,0 +1,10 @@
+.btn {
+	background: none;
+	border: none;
+	color: var(--textColor-700);
+	font-size: 1rem;
+	transition: 0.3s;
+	&:hover {
+		color: var(--texColor);
+	}
+}

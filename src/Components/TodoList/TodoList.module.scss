@@ -1,0 +1,21 @@
+@import '../../Style/mixin.scss';
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 800px;
+	margin: 48px 12px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+}
+.todos {
+	width: 100%;
+	counter-reset: counterName;
+}
+@include mediaquery('lg') {
+	.container {
+		margin: 48px auto;
+	}
+}

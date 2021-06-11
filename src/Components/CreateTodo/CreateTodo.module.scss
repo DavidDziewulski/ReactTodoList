@@ -1,0 +1,41 @@
+.addTodo {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 24px 24px 24px 32px;
+}
+.text {
+	flex: 1;
+	width: 100%;
+	border: none;
+	font-size: 1.2rem;
+	&::placeholder {
+		color: var(--textColor-700);
+	}
+	&:focus {
+		outline: none;
+		color: var(--textTodo);
+	}
+}
+.btn {
+	font-size: 0.9rem;
+	padding: 0.6rem 1.5rem;
+	background-color: white;
+	border: none;
+	&:hover {
+		background-color: #b1a296;
+		color: white;
+		cursor: pointer;
+	}
+}
+
+.visuallyHidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}

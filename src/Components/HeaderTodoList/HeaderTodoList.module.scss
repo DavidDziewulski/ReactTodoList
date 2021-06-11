@@ -1,0 +1,27 @@
+@import '../../Style/mixin.scss';
+.header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 12px;
+	border-bottom: 1px solid #b1a296;
+}
+.title {
+	font-size: 1.6rem;
+	color: var(--textColor);
+	flex-grow: 1;
+}
+.border {
+	position: absolute;
+	left: 0%;
+	right: 0;
+	top: 90px;
+	border-bottom: 1px solid #b1a296;
+	width: 100%;
+}
+
+@include mediaquery('sm') {
+	.header {
+		padding: 24px 12px;
+	}
+}

@@ -1,0 +1,10 @@
+html {
+	font-size: 62.5% !important;
+	background-color: var(--primaryColor);
+}
+
+@include mediaquery('sm') {
+	html {
+		font-size: 100% !important;
+	}
+}
