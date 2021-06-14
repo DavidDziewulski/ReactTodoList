@@ -25,7 +25,7 @@ const TodoTasks = ({ status, todoList, handleDoneTodo, handleRemoveTodo }) => (
             done={todo.done}
           />
         );
-      } else {
+      } else if (status === "all") {
         return (
           <Todo
             key={todo.id}
