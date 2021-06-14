@@ -1,5 +1,6 @@
 import style from "./HeaderTodoList.module.scss";
 import ButtonRemoveAllTodos from "../ButtonRemoveAllTodos/ButtonRemoveAllTodos";
+import { Link } from "react-router-dom";
 const HeaderTodoList = ({
   allTodo,
   doneTodo,
@@ -7,15 +8,29 @@ const HeaderTodoList = ({
   handleRemoveAllTodos,
 }) => {
   return (
-    <header className={style.header}>
-      <h2 className={style.title}>All: {allTodo}</h2>
-      <h2 className={style.title}>Active: {activeTodo}</h2>
-      <h2 className={style.title}>Complited: {doneTodo}</h2>
+    <nav className={style.nav}>
+      <ul className={style.list}>
+        <li className={style.link}>
+          <Link className={style.title} to="/" exact={true}>
+            All: {allTodo}
+          </Link>
+        </li>
+        <li className={style.link}>
+          <Link className={style.title} to="/active">
+            Active: {activeTodo}
+          </Link>
+        </li>
+        <li className={style.link}>
+          <Link className={style.title} to="/completed">
+            Completed: {doneTodo}
+          </Link>
+        </li>
+      </ul>
       <ButtonRemoveAllTodos
         handleRemoveAllTodos={handleRemoveAllTodos}
         allTodo={allTodo}
       />
-    </header>
+    </nav>
   );
 };
 
