@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import style from "./TodoList.module.scss";
 import HeaderTodoList from "../HeaderTodoList/HeaderTodoList";
 import CreateTodo from "../CreateTodo/CreateTodo";
-import Todo from "../Todo/Todo";
-import styles from "./TodoList.module.scss";
+import TodoTasks from "../TodoTasks/TodoTasks";
 const TodoList = () => {
   const [todoList, setTodoList] = useState([]);
   const handleRemoveAllTodos = () => setTodoList([]);
@@ -39,29 +39,43 @@ const TodoList = () => {
     }
   };
   return (
-    <main className={style.container}>
-      <HeaderTodoList
-        allTodo={todoList.length}
-        doneTodo={handleTodoByStatus("done")}
-        activeTodo={handleTodoByStatus("active")}
-        handleRemoveAllTodos={handleRemoveAllTodos}
-      />
-      {todoList.length > 0 && (
-        <ol className={styles.todos}>
-          {todoList.map((todo) => (
-            <Todo
-              key={todo.id}
-              id={todo.id}
-              content={todo.content}
+    <Router>
+      <main className={style.container}>
+        <HeaderTodoList
+          allTodo={todoList.length}
+          doneTodo={handleTodoByStatus("done")}
+          activeTodo={handleTodoByStatus("active")}
+          handleRemoveAllTodos={handleRemoveAllTodos}
+        />
+        <Switch>
+          <Route path="/active">
+            <TodoTasks
+              status={"active"}
+              todoList={todoList}
               handleDoneTodo={handleDoneTodo}
               handleRemoveTodo={handleRemoveTodo}
-              done={todo.done}
             />
-          ))}
-        </ol>
-      )}
-      <CreateTodo handleAddTodo={handleAddTodo} />
-    </main>
+          </Route>
+          <Route path="/completed">
+            <TodoTasks
+              status={"completed"}
+              todoList={todoList}
+              handleDoneTodo={handleDoneTodo}
+              handleRemoveTodo={handleRemoveTodo}
+            />
+          </Route>
+          <Route path="/">
+            <TodoTasks
+              status={"all"}
+              todoList={todoList}
+              handleDoneTodo={handleDoneTodo}
+              handleRemoveTodo={handleRemoveTodo}
+            />
+          </Route>
+        </Switch>
+        <CreateTodo handleAddTodo={handleAddTodo} />
+      </main>
+    </Router>
   );
 };
 
